@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-only
 /*
- * sysctl.c: General linux system control interface
+ * sysctl.c: General bk os system control interface
  *
  * Begun 24 March 1995, Stephen Tweedie
  * Added /proc support, Dec 1995
