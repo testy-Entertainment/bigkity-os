@@ -105,18 +105,7 @@ struct page {
 			struct page_pool *pp;
 			unsigned long _pp_mapping_pad;
 			unsigned long dma_addr;
-			union {
-				/**
-				 * dma_addr_upper: might require a 64-bit
-				 * value on 32-bit architectures.
-				 */
-				unsigned long dma_addr_upper;
-				/**
-				 * For frag page support, not supported in
-				 * 32-bit architectures with 64-bit DMA.
-				 */
-				atomic_long_t pp_frag_count;
-			};
+			atomic_long_t pp_frag_count;
 		};
 		struct {	/* slab, slob and slub */
 			union {
@@ -125,10 +114,8 @@ struct page {
 					struct page *next;
 #ifdef CONFIG_64BIT
 					int pages;	/* Nr of pages left */
-					int pobjects;	/* Approximate count */
 #else
 					short int pages;
-					short int pobjects;
 #endif
 				};
 			};
@@ -465,17 +452,6 @@ struct vm_area_struct {
 	struct vm_userfaultfd_ctx vm_userfaultfd_ctx;
 } __randomize_layout;
 
-struct core_thread {
-	struct task_struct *task;
-	struct core_thread *next;
-};
-
-struct core_state {
-	atomic_t nr_threads;
-	struct core_thread dumper;
-	struct completion startup;
-};
-
 struct kioctx_table;
 struct mm_struct {
 	struct {
@@ -595,8 +571,6 @@ struct mm_struct {
 		mm_context_t context;
 
 		unsigned long flags; /* Must use atomic bitops to access */
-
-		struct core_state *core_state; /* coredumping support */
 
 #ifdef CONFIG_AIO
 		spinlock_t			ioctx_lock;
