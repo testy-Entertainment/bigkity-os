@@ -2103,6 +2103,7 @@ N:	digicolor
 ARM/CORESIGHT FRAMEWORK AND DRIVERS
 M:	Suzuki K Poulose <suzuki.poulose@arm.com>
 R:	Mike Leach <mike.leach@linaro.org>
+R:	James Clark <james.clark@arm.com>
 R:	Leo Yan <leo.yan@linaro.org>
 L:	coresight@lists.linaro.org (moderated for non-subscribers)
 L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
@@ -3384,6 +3385,16 @@ F:	include/uapi/linux/audit.h
 F:	kernel/audit*
 F:	lib/*audit.c
 
+AUXILIARY BUS DRIVER
+M:	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+R:	Dave Ertman <david.m.ertman@intel.com>
+R:	Ira Weiny <ira.weiny@intel.com>
+S:	Supported
+T:	git git://git.kernel.org/pub/scm/linux/kernel/git/gregkh/driver-core.git
+F:	Documentation/driver-api/auxiliary_bus.rst
+F:	drivers/base/auxiliary.c
+F:	include/linux/auxiliary_bus.h
+
 AUXILIARY DISPLAY DRIVERS
 M:	Miguel Ojeda <ojeda@kernel.org>
 S:	Maintained
@@ -4529,6 +4540,12 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/usb.git
 F:	drivers/usb/cdns3/
 X:	drivers/usb/cdns3/cdns3*
 
+CADENCE USBHS DRIVER
+M:	Pawel Laszczak <pawell@cadence.com>
+L:	linux-usb@vger.kernel.org
+S:	Maintained
+F:	drivers/usb/gadget/udc/cdns2
+
 CADET FM/AM RADIO RECEIVER DRIVER
 M:	Hans Verkuil <hverkuil@xs4all.nl>
 L:	linux-media@vger.kernel.org
@@ -5202,6 +5219,13 @@ L:	linux-cxl@vger.kernel.org
 S:	Maintained
 F:	drivers/cxl/
 F:	include/uapi/linux/cxl_mem.h
+
+COMPUTE EXPRESS LINK PMU (CPMU)
+M:	Jonathan Cameron <jonathan.cameron@huawei.com>
+L:	linux-cxl@vger.kernel.org
+S:	Maintained
+F:	Documentation/admin-guide/perf/cxl.rst
+F:	drivers/perf/cxl_pmu.c
 
 CONEXANT ACCESSRUNNER USB DRIVER
 L:	accessrunner-general@lists.sourceforge.net
@@ -5908,7 +5932,9 @@ S:	Orphan
 F:	drivers/mtd/nand/raw/denali*
 
 DESIGNWARE EDMA CORE IP DRIVER
-M:	Gustavo Pimentel <gustavo.pimentel@synopsys.com>
+M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+R:	Gustavo Pimentel <gustavo.pimentel@synopsys.com>
+R:	Serge Semin <fancer.lancer@gmail.com>
 L:	dmaengine@vger.kernel.org
 S:	Maintained
 F:	drivers/dma/dw-edma/
@@ -9483,6 +9509,13 @@ F:	lib/test_hmm*
 F:	mm/hmm*
 F:	tools/testing/selftests/mm/*hmm*
 
+HONEYWELL MPRLS0025PA PRESSURE SENSOR SERIES IIO DRIVER
+M:	Andreas Klinger <ak@it-klinger.de>
+L:	linux-iio@vger.kernel.org
+S:	Maintained
+F:	Documentation/devicetree/bindings/iio/pressure/honeywell,mprls0025pa.yaml
+F:	drivers/iio/pressure/mprls0025pa.c
+
 HOST AP DRIVER
 M:	Jouni Malinen <j@w1.fi>
 L:	linux-wireless@vger.kernel.org
@@ -10327,6 +10360,13 @@ L:	linux-fbdev@vger.kernel.org
 S:	Maintained
 F:	drivers/video/fbdev/i810/
 
+INTEL 8254 COUNTER DRIVER
+M:	William Breathitt Gray <william.gray@linaro.org>
+L:	linux-iio@vger.kernel.org
+S:	Maintained
+F:	drivers/counter/i8254.c
+F:	include/linux/i8254.h
+
 INTEL 8255 GPIO DRIVER
 M:	William Breathitt Gray <william.gray@linaro.org>
 L:	linux-gpio@vger.kernel.org
@@ -10532,7 +10572,7 @@ L:	linux-media@vger.kernel.org
 S:	Maintained
 F:	Documentation/admin-guide/media/ipu3.rst
 F:	Documentation/admin-guide/media/ipu3_rcb.svg
-F:	Documentation/userspace-api/media/v4l/pixfmt-meta-intel-ipu3.rst
+F:	Documentation/userspace-api/media/v4l/metafmt-intel-ipu3.rst
 F:	drivers/staging/media/ipu3/
 
 INTEL ISHTP ECLITE DRIVER
@@ -10876,7 +10916,6 @@ S:	Maintained
 F:	drivers/net/ethernet/sgi/ioc3-eth.c
 
 IOMAP FILESYSTEM LIBRARY
-M:	Christoph Hellwig <hch@infradead.org>
 M:	Darrick J. Wong <djwong@kernel.org>
 L:	linux-xfs@vger.kernel.org
 L:	linux-fsdevel@vger.kernel.org
@@ -11509,6 +11548,7 @@ M:	Sean Christopherson <seanjc@google.com>
 M:	Paolo Bonzini <pbonzini@redhat.com>
 L:	kvm@vger.kernel.org
 S:	Supported
+P:	Documentation/process/maintainer-kvm-x86.rst
 T:	git git://git.kernel.org/pub/scm/virt/kvm/kvm.git
 F:	arch/x86/include/asm/kvm*
 F:	arch/x86/include/asm/svm.h
@@ -13981,6 +14021,7 @@ F:	include/dt-bindings/iio/adc/at91-sama5d2_adc.h
 MICROCHIP SAMA5D2-COMPATIBLE SHUTDOWN CONTROLLER
 M:	Claudiu Beznea <claudiu.beznea@microchip.com>
 S:	Supported
+F:	Documentation/devicetree/bindings/power/reset/atmel,sama5d2-shdwc.yaml
 F:	drivers/power/reset/at91-sama5d2_shdwc.c
 
 MICROCHIP SOC DRIVERS
@@ -15567,6 +15608,13 @@ M:	Shawn Tu <shawnx.tu@intel.com>
 L:	linux-media@vger.kernel.org
 S:	Maintained
 F:	drivers/media/i2c/og01a1b.c
+
+OMNIVISION OV01A10 SENSOR DRIVER
+M:	Bingbu Cao <bingbu.cao@intel.com>
+L:	linux-media@vger.kernel.org
+S:	Maintained
+T:	git git://linuxtv.org/media_tree.git
+F:	drivers/media/i2c/ov01a10.c
 
 OMNIVISION OV02A10 SENSOR DRIVER
 M:	Dongchun Zhu <dongchun.zhu@mediatek.com>
@@ -17663,9 +17711,18 @@ S:	Maintained
 F:	Documentation/devicetree/bindings/thermal/qcom-tsens.yaml
 F:	drivers/thermal/qcom/
 
+QUALCOMM TYPEC PORT MANAGER DRIVER
+M:	Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+L:	linux-arm-msm@vger.kernel.org
+L:	linux-usb@vger.kernel.org
+S:	Maintained
+F:	Documentation/devicetree/bindings/usb/qcom,pmic-*.yaml
+F:	drivers/usb/typec/tcpm/qcom/
+
 QUALCOMM VENUS VIDEO ACCELERATOR DRIVER
 M:	Stanimir Varbanov <stanimir.k.varbanov@gmail.com>
 M:	Vikash Garodia <quic_vgarodia@quicinc.com>
+R:	Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 L:	linux-media@vger.kernel.org
 L:	linux-arm-msm@vger.kernel.org
 S:	Maintained
@@ -18180,6 +18237,13 @@ S:	Maintained
 F:	Documentation/devicetree/bindings/clock/renesas,versaclock7.yaml
 F:	drivers/clk/clk-versaclock7.c
 
+RENESAS X9250 DIGITAL POTENTIOMETERS DRIVER
+M:	Herve Codina <herve.codina@bootlin.com>
+L:	linux-iio@vger.kernel.org
+S:	Maintained
+F:	Documentation/devicetree/bindings/iio/potentiometer/renesas,x9250.yaml
+F:	drivers/iio/potentiometer/x9250.c
+
 RESET CONTROLLER FRAMEWORK
 M:	Philipp Zabel <p.zabel@pengutronix.de>
 S:	Maintained
@@ -18275,6 +18339,7 @@ F:	drivers/clk/microchip/clk-mpfs*.c
 F:	drivers/i2c/busses/i2c-microchip-corei2c.c
 F:	drivers/mailbox/mailbox-mpfs.c
 F:	drivers/pci/controller/pcie-microchip-host.c
+F:	drivers/pwm/pwm-microchip-core.c
 F:	drivers/reset/reset-mpfs.c
 F:	drivers/rtc/rtc-mpfs.c
 F:	drivers/soc/microchip/mpfs-sys-controller.c
@@ -18347,7 +18412,7 @@ L:	linux-rockchip@lists.infradead.org
 S:	Maintained
 F:	Documentation/admin-guide/media/rkisp1.rst
 F:	Documentation/devicetree/bindings/media/rockchip-isp1.yaml
-F:	Documentation/userspace-api/media/v4l/pixfmt-meta-rkisp1.rst
+F:	Documentation/userspace-api/media/v4l/metafmt-rkisp1.rst
 F:	drivers/media/platform/rockchip/rkisp1
 F:	include/uapi/linux/rkisp1-config.h
 
@@ -18392,10 +18457,11 @@ S:	Maintained
 F:	Documentation/devicetree/bindings/iio/light/bh1750.yaml
 F:	drivers/iio/light/bh1750.c
 
-ROHM BU27034 AMBIENT LIGHT SENSOR DRIVER
+ROHM BU270xx LIGHT SENSOR DRIVERs
 M:	Matti Vaittinen <mazziesaccount@gmail.com>
 L:	linux-iio@vger.kernel.org
 S:	Supported
+F:	drivers/iio/light/rohm-bu27008.c
 F:	drivers/iio/light/rohm-bu27034.c
 
 ROHM MULTIFUNCTION BD9571MWV-M PMIC DEVICE DRIVERS
@@ -20265,6 +20331,13 @@ F:	Documentation/devicetree/bindings/clock/starfive,jh71*.yaml
 F:	drivers/clk/starfive/clk-starfive-jh71*
 F:	include/dt-bindings/clock/starfive?jh71*.h
 
+STARFIVE CRYPTO DRIVER
+M:	Jia Jie Ho <jiajie.ho@starfivetech.com>
+M:	William Qiu <william.qiu@starfivetech.com>
+S:	Supported
+F:	Documentation/devicetree/bindings/crypto/starfive*
+F:	drivers/crypto/starfive/
+
 STARFIVE JH71X0 PINCTRL DRIVERS
 M:	Emil Renner Berthing <kernel@esmil.dk>
 M:	Jianlong Huang <jianlong.huang@starfivetech.com>
@@ -20282,6 +20355,12 @@ S:	Maintained
 F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
 F:	drivers/reset/starfive/reset-starfive-jh71*
 F:	include/dt-bindings/reset/starfive?jh71*.h
+
+STARFIVE JH71X0 USB DRIVERS
+M:	Minda Chen <minda.chen@starfivetech.com>
+S:	Maintained
+F:	Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
+F:	drivers/usb/cdns3/cdns3-starfive.c
 
 STARFIVE JH71XX PMU CONTROLLER DRIVER
 M:	Walker Chen <walker.chen@starfivetech.com>
@@ -20982,10 +21061,13 @@ TEGRA VIDEO DRIVER
 M:	Thierry Reding <thierry.reding@gmail.com>
 M:	Jonathan Hunter <jonathanh@nvidia.com>
 M:	Sowjanya Komatineni <skomatineni@nvidia.com>
+M:	Luca Ceresoli <luca.ceresoli@bootlin.com>
 L:	linux-media@vger.kernel.org
 L:	linux-tegra@vger.kernel.org
 S:	Maintained
 F:	Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-host1x.yaml
+F:	Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-vi.yaml
+F:	Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-vip.yaml
 F:	drivers/staging/media/tegra-video/
 
 TEGRA XUSB PADCTL DRIVER
@@ -22080,6 +22162,7 @@ F:	drivers/usb/
 F:	include/dt-bindings/usb/
 F:	include/linux/usb.h
 F:	include/linux/usb/
+F:	include/uapi/linux/usb/
 
 USB TYPEC BUS FOR ALTERNATE MODES
 M:	Heikki Krogerus <heikki.krogerus@linux.intel.com>
@@ -22466,6 +22549,10 @@ F:	include/linux/virtio*.h
 F:	include/linux/vringh.h
 F:	include/uapi/linux/virtio_*.h
 F:	tools/virtio/
+
+PDS DSC VIRTIO DATA PATH ACCELERATOR
+R:	Shannon Nelson <shannon.nelson@amd.com>
+F:	drivers/vdpa/pds/
 
 VIRTIO CRYPTO DRIVER
 M:	Gonglei <arei.gonglei@huawei.com>
@@ -23375,8 +23462,10 @@ M:	Srinivas Neeli <srinivas.neeli@amd.com>
 R:	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 R:	Michal Simek <michal.simek@amd.com>
 S:	Maintained
+F:	Documentation/devicetree/bindings/watchdog/xlnx,versal-wwdt.yaml
 F:	Documentation/devicetree/bindings/watchdog/xlnx,xps-timebase-wdt.yaml
 F:	drivers/watchdog/of_xilinx_wdt.c
+F:	drivers/watchdog/xilinx_wwdt.c
 
 XILINX XDMA DRIVER
 M:	Lizhi Hou <lizhi.hou@amd.com>
